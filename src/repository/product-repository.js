@@ -76,7 +76,7 @@ class productRepository{
     
        }
 
-    async getAllCities(filter){
+    async getAllProducts(filter){
 
         try{
 
@@ -101,7 +101,7 @@ class productRepository{
         console.log('Something went wrong in the repository layer');
         throw {error};
 
-        
+
         }
 
         
