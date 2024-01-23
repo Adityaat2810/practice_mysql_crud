@@ -10,7 +10,8 @@ class productService{
     async createProduct(data){
         try{
 
-            const product = this.productRepository.createProduct(data)
+            const product = this.productRepository.createProduct(data);
+            return product;
 
         }catch(error){
             console.log("something went wrong at service layer");
@@ -62,7 +63,7 @@ class productService{
         try{
 
             const products = await this.productRepository.getAllProducts(filter);
-            return cities;
+            return products;
 
         }catch(error){
             console.log("something went wrong at service layer");

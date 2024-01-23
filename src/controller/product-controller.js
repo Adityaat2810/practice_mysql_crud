@@ -1,9 +1,11 @@
 const express = require('express');
 const productService = require('../service/product_service')
+const ProductService = new productService();
 
 const create=async(req,res)=>{
     try{
-        const product = await productService.createProduct(req.body);
+        const product = await ProductService.createProduct(req.body);
+        console.log(product);
         return res.status(201).json({
            data:product ,
            success:true ,
@@ -25,7 +27,7 @@ const create=async(req,res)=>{
 
 const update =async(req,res)=>{
     try{
-        const product = await productService.updateProduct(req.params.id,req.body);
+        const product = await ProductService.updateProduct(req.params.id,req.body);
         return res.status(201).json({
             data:product,
             success:true,
@@ -49,7 +51,7 @@ const update =async(req,res)=>{
 const destroy=async(req,res)=>{
     try{
 
-        const product= await productService.deleteProduct(req.params.id);
+        const product= await ProductService.deleteProduct(req.params.id);
         return res.status(201).json({
             data:product,
             success:true,
@@ -74,7 +76,7 @@ const destroy=async(req,res)=>{
 const get = async(req,res)=>{
     try{
 
-        const product = await productService.getProduct(req.params.id);
+        const product = await ProductService.getProduct(req.params.id);
         return res.status(201).json({
             data:product,
             success:true,
@@ -97,7 +99,7 @@ const get = async(req,res)=>{
 const getAll= async(req,res)=>{
     try{
         console.log(req.query)
-        const products = await productService.getAllProducts(req.query);
+        const products = await ProductService.getAllProducts(req.query);
         return res.status(201).json({
             data:products,
             success:true,

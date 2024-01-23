@@ -1,4 +1,4 @@
-const { toDefaultValue } = require('sequelize/types/utils');
+// const { toDefaultValue } = require('sequelize/types/utils');
 const {Product} = require('../models/index')
 const {Op} =require('sequelize')
 
@@ -13,6 +13,8 @@ class productRepository{
                 description:description,
                 price:price
             })
+
+            return product;
         }catch(error){
             
             console.log('Something went wrong in the repository layer');
